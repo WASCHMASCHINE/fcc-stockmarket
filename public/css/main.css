@@ -1,204 +1,155 @@
-/********* Fonts **********/
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
+#graph-wrapper {
+    padding-top: 4em;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
+#addStockBar {
+    width: 200px;
 }
 
-/****** Main Styling ******/
 
-body {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	margin: 0;
-	padding: 0;
+ 
+
+.myStyle:before {
+    color: red;
+    text-decoration: none;
 }
 
-header {
-	color: #00BCD4;
-	height: 56px;
-	margin: 0 0 14px 0;
-	text-align: center;
+
+
+
+
+
+/* Resets */
+.graph-container,
+.graph-container div,
+.graph-container a,
+.graph-container span {
+    margin: 0;
+    padding: 0;
 }
 
-p {
-	margin: 8px 0 0 0;
+/* Gradinet and Rounded Corners */
+.graph-container, #tooltip, .graph-info a {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+    background: -o-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,#f9f9f9 100%);
+ 
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
-.container p {
-	text-align: center;
-	padding: 0;
+/* Graph Container */
+.graph-container {
+    position: relative;
+    width: 550px;
+    height: 300px;
+    padding: 20px;
+ 
+    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+    -moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+}
+ 
+.graph-container > div {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 10px;
+    left: 25px;
+}
+ 
+.graph-info {
+    width: 590px;
+    margin-bottom: 10px;
 }
 
-/****** Header Styling ******/
-
-header p {
-	margin: 16px 0 5px 0;
+.graph-info a {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 20px;
+    padding: 7px 15px 5px 15px;
+    margin-right: 10px;
+    text-decoration: none;
+    cursor: default;
 }
 
-.menu {
-	text-decoration: none;
-	padding: 6px;
-	margin: 0;
-	color: #727272;
+/* Color Circles */
+.graph-info a:before {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 8px;
+    height: 8px;
+    top: 13px;
+    left: 13px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius:5px;
+}
+/* Lines & Bars Buttons */
+#lines {
+    width: 34px;
+    height: 32px;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 10px;
+    border-bottom: 2px solid #71c73e;
+    float: right;
+    cursor: pointer;
+}
+ 
+#lines.active{
+    background: #82d344;
+    background: -moz-linear-gradient(top, #82d344 0%, #71c73e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#82d344), color-stop(100%,#71c73e));
+    background: -webkit-linear-gradient(top, #82d344 0%,#71c73e 100%);
+    background: -o-linear-gradient(top, #82d344 0%,#71c73e 100%);
+    background: -ms-linear-gradient(top, #82d344 0%,#71c73e 100%);
+    background: linear-gradient(to bottom, #82d344 0%,#71c73e 100%);
+}
+ 
+#lines span{
+    display: block;
+    width: 34px;
+    height: 32px;
+    background: url('../img/lines.png') no-repeat 9px 12px;
 }
 
-.menu:visited {
-	color: #727272;
+/* Clear Floats */
+.graph-info:before, .graph-info:after,
+.graph-container:before, .graph-container:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
-.menu:hover {
-	color: #FFA000;
+#tooltip, .graph-info a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    color: #646464;
+}
+ 
+.tickLabel {
+    font-weight: bold;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.menu:active {
-	color: #FF630D;
-}
+.yAxis .tickLabel:first-child,
+.yAxis .tickLabel:last-child { display: none; }
 
-header a ~ p {
-	margin: 0;
-	padding: 0;
-	display: inline;
-	color: #ECEFF1;
-}
-
-#display-name {
-	font-weight: 400;
-}
-
-/****** Login Styling ******/
-
-.login {
-	margin: 86px auto 0 auto;
-	text-align: center;
-}
-
-#login-btn {
-	width: 225px;
-	padding: 7px 5px;
-}
-
-.btn p {
-	margin: 8px 0 0 0;
-	padding: 0;
-}
-
-.btn > img {
-	float: left;
-	margin-left: 10px
-}
-
-/****** Logo Div Styling ******/
-
-img {
-	margin: 0 auto;
-	display: block;
-}
-
-.clementine-text { /* Styling for the Clementine.js text */
-	padding: 0;
-	margin: -25px 0 0 0;
-	font-weight: 500;
-	font-size: 60px;
-	color: #FFA000;
-}
-
-/****** Click Styling ******/
-
-.btn-container {	/* Styling for the div that contains the buttons */
-	margin: -10px auto 0 auto;
-	text-align: center;
-}
-
-.btn {	/* Styling for buttons */
-	margin: 0 8px;
-	color: white;
-	background-color: #00BCD4;
-	display: inline-block;
-	border: 0;
-	font-size: 14px;
-	border-radius: 3px;
-	padding: 10px 5px;
-	width: 100px;
-	font-weight: 500;
-}
-
-.btn:focus {	/* Remove outline when hovering over button */
-	outline: none;
-}
-
-.btn:active {	/* Scale the button down by 10% when clicking on button */
-	transform: scale(0.9, 0.9);
-	-webkit-transform: scale(0.9, 0.9);
-	-moz-transform: scale(0.9, 0.9);
-}
-
-.btn-delete {	/* Styling for delete button */
-	background-color: #ECEFF1;
-	color: #212121;
-}
-
-#click-nbr {
-	font-weight: 400;
-}
-
-/****** Profile Styling ******/
-
-.github-profile {
-	width: 350px;
-	height: 200px;
-	border-radius: 3px;
-	margin: 86px auto 0 auto;
-	background-color: #EEE;
-	text-align: center;
-	color: #000;
-}
-
-.github-profile p:first-child {
-	padding-top: 16px;
-}
-
-.github-profile p:nth-child(5) {
-	margin-bottom: 16px
-}
-
-.github-profile p {
-	margin: 0 0 0 16px;
-	text-align: left;
-}
-
-.profile-value {
-	font-weight: 400;
-}
-
-span {
-	font-weight: 500;
-}
-
-.github-profile > img {
-	padding-top: 16px;
-	margin-bottom: 16px;
-}
-
-.github-profile .menu:hover {
-	color: #FFA000;
-}
-
-.github-profile .menu:active {
-	color: #FF630D;
-}
-
-#menu-divide {
-	color: #FFFFFF;
-	display: inline;
-	margin: 0;
+#tooltip {
+    position: absolute;
+    display: none;
+    padding: 5px 10px;
+    border: 1px solid #e1e1e1;
 }

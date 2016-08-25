@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 
 <html>
-
 	<head>
-		<title>Clementine.js - The elegant and lightweight full stack JavaScript boilerplate.</title>
-		
+		<title>Chart the stock market</title>
 		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.flot/0.8.3/jquery.flot.min.js"></script>
+		
+		<script type="text/javascript" src="controllers/graphHandler.client.js"></script>
+		<script type="text/javascript" src="common/ajax-functions.js"></script>
+		<script src="socket.io/socket.io.js"></script>
 	</head>
 
-	<header>
-		<p>Welcome, <span id="display-name"></span>!</p>
-		<a class="menu" href="/profile">Profile</a>
-		<p>|</p>
-		<a class="menu" href="/logout">Logout</a>
-	</header>
-
 	<body>
-		<div class="container">
-			<img src="/public/img/clementine_150.png" />
-			<br />
-			<p class="clementine-text">Clementine.js</p>
-		</div>
-	
-		<div class="container">
-			<p>You have clicked the button <span id="click-nbr"></span> times.</p>
-			<br />
-			<div class="btn-container">
-				<button type="submit" class="btn btn-add">CLICK ME!</button>
-				<button class="btn btn-delete">RESET</button>
-			</div>
-		</div>
-		
-		<script type="text/javascript" src="common/ajax-functions.js"></script>
-		<script type="text/javascript" src="controllers/clickController.client.js"></script>
-		<script type="text/javascript" src="controllers/userController.client.js"></script>
+	    <center>
+    		<div id="graph-wrapper">
+    			<div class="graph-info">
+    			</div>
+    			<div class="graph-container">
+    				<div id="graph-lines"></div>
+    			</div>
+	    	</div>
+	    	<br>
+			<input id="addStockBar" class="form-control" placeholder="Enter a stock, e.g. YHOO">
+		</center>
 	</body>
-
 </html>
